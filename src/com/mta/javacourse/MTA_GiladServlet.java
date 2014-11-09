@@ -7,7 +7,15 @@ import javax.servlet.http.*;
 public class MTA_GiladServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
-		resp.setContentType("text/plain");
-		resp.getWriter().println("Hello,My Name Is Gilad David");
+		
+			int num1 = 4;
+			int num2 = 3;
+			int num3 = 7;
+			int result = (num1+num2)*num3;
+		
+		String resStr = new String ("<h1>Result of --> " + "(" + num1 + "+" + num2 + ")" + "*" + num3 + " = " + result + "</h1>" );
+		
+		resp.setContentType("text/html");
+		resp.getWriter().println(resStr);
 	}
 }
