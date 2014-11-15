@@ -15,11 +15,11 @@ public class MTA_GiladServlet extends HttpServlet {
 		int result = (num1 + num2) * num3;
 
 		String resStr1 = new String("<h1>Result of --> " + "(" + num1 + "+" + num2 + ")" + "*" + num3 + " = " + result + "</h1>");
+		
 		//calculate area of circle
 		int radius = 50;
 		double circleArea = (radius * radius) * Math.PI;
 		String roundArea = String.format("%.2f", circleArea);
-		
 		String line1 = new String ("calculation 1: Area of circle with radius " + radius + " is: " + roundArea + " square-cm.");
 		
 		
@@ -36,10 +36,11 @@ public class MTA_GiladServlet extends HttpServlet {
 		int exp = 13;
 		long powRes = 1;
 		
-		for (int i = 1; i <= exp; i++)
+		for (int i = 0; i < exp; i++)
 		{
 			powRes *= base;
 		}
+		
 		String line3 = new String ("calculation 3: Power of " + base +" with exp of " + exp + " is: " + powRes);
 		
 		String resultStr = resStr1 + "<br>" + line1 + "<br>" + line2 + "<br>" + line3;
