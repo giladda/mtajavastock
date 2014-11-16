@@ -34,14 +34,8 @@ public class MTA_GiladServlet extends HttpServlet {
 		//calculate power
 		int base = 20;
 		int exp = 13;
-		long powRes = 1;
-		
-		for (int i = 0; i < exp; i++)
-		{
-			powRes *= base;
-		}
-		
-		String line3 = new String ("calculation 3: Power of " + base +" with exp of " + exp + " is: " + powRes);
+		long powerRes = (long) Math.pow(base, exp);
+		String line3 = new String ("calculation 3: Power of " + base +" with exp of " + exp + " is: " + powerRes);
 		
 		String resultStr = resStr1 + "<br>" + line1 + "<br>" + line2 + "<br>" + line3;
 		
