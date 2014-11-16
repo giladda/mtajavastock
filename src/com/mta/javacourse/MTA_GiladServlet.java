@@ -27,9 +27,9 @@ public class MTA_GiladServlet extends HttpServlet {
 		int hypotenuse = 50;
 		int angleB = 30;
 		double angleBInRadians = Math.toRadians(angleB);
-		double opposite = hypotenuse * angleBInRadians;
+		double opposite = Math.sin(angleBInRadians) * hypotenuse;
 		String roundOpposite = String.format("%.2f", opposite);
-		String line2 = new String ("calculation 2: Length of opposite, where angle B is: " + angleB + " is: " + roundOpposite + ".");
+		String line2 = new String ("calculation 2: Length of opposite, where angle B is: " + angleB + " degrees" + " is: " + roundOpposite + ".");
 		
 		//calculate power
 		int base = 20;
