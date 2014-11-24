@@ -8,7 +8,7 @@ public class Stock {
 	private String Symbol;
 	private float Ask;
 	private float Bid;
-	private Date myDate;
+	private Date Date;
 	
 	//Setters and Getters--->
 	
@@ -38,10 +38,10 @@ public class Stock {
 	
 	//Date S&G
 	public Date getDate() {
-		return myDate;
+		return Date;
 	}
 	public void setDate(Date date) {
-		myDate = date;
+		Date = date;
 	}
 	
 	public String getHtmlDescription()
