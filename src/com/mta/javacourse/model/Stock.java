@@ -1,5 +1,8 @@
 package com.mta.javacourse.model;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -10,20 +13,22 @@ import java.util.Date;
  */
 public class Stock {
 
-	//Data Members
+	// Data Members
 	private String symbol;
 	private float ask;
 	private float bid;
-	private Date date;
-/**
- * c'tor for initializing stocks
- */
-	public Stock()
-	{
-		symbol = "";
-		ask = 0;
-		bid = 0;
-		date = new Date();
+	Calendar cal = Calendar.getInstance();
+	java.util.Date date = cal.getTime(); 
+
+	DateFormat dateFt = new SimpleDateFormat("dd/MM/yy");
+
+	/**
+	 * c'tor for initializing stocks
+	 */
+	public Stock() {
+		this.symbol = "";
+		this.ask = 0;
+		this.bid = 0;
 	}
 
 	/**
@@ -34,27 +39,26 @@ public class Stock {
 	 * @param bid
 	 * @param date
 	 */
-	public Stock (String symbol, float ask, float bid, Date date)
-	{
+	public Stock(String symbol, float ask, float bid, Date date) {
 		this();
 		setSymbol(symbol);
 		setAsk(ask);
 		setBid(bid);
-		setDate(date);
+		setDate(new Date(date.getTime()));
 	}
 
 	/**
 	 * copy c'tor for stock
+	 * 
 	 * @param stock
 	 */
-	public Stock (Stock stock)
-	{
-		this (stock.getSymbol(), stock.getAsk(), stock.getBid(), stock.getDate());
+	public Stock(Stock stock) {
+		this(stock.getSymbol(), stock.getAsk(), stock.getBid(), new Date (stock.date.getTime()));
 	}
 
-	//Setters and Getters--->
+	// Setters and Getters--->
 
-	//Symbol S&G
+	// Symbol S&G
 	public String getSymbol() {
 		return symbol;
 	}
@@ -63,7 +67,7 @@ public class Stock {
 		this.symbol = symbol;
 	}
 
-	//Ask S&G
+	// Ask S&G
 	public float getAsk() {
 		return ask;
 	}
@@ -72,7 +76,7 @@ public class Stock {
 		this.ask = ask;
 	}
 
-	//Bid S&G
+	// Bid S&G
 	public float getBid() {
 		return bid;
 	}
@@ -81,18 +85,24 @@ public class Stock {
 		this.bid = bid;
 	}
 
-	//Date S&G
-	public Date getDate() {
+	// Date S&G
+	public java.util.Date getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(java.util.Date date) {
 		this.date = date;
 	}
-
-	public String getHtmlDescription()
-	{
-		String stockHtmlDetailsString = "<b>Stock symbol</b>: " +getSymbol() + "<b> Stock Ask</b>: " +getAsk() + "<b> Bid</b>: " +getBid() + "<b> Stock Date</b>: " +getDate();
+	/**
+	 * function for creating html string for a single stock
+	 * 
+	 * @return
+	 */
+	public String getHtmlDescription() {
+		String dateStr = dateFt.format(date.getTime());
+		String stockHtmlDetailsString = "<b>Stock symbol</b>: " + getSymbol()
+				+ "<b> Stock Ask</b>: " + getAsk()+ "$" + "<b> Bid</b>: " + getBid()
+				+ "$" +"<b> Stock Date</b>: " + dateStr;
 		return stockHtmlDetailsString;
 	}
 }
