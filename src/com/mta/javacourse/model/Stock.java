@@ -14,11 +14,11 @@ import java.util.Date;
 public class Stock {
 
 	// Data Members
-	private String symbol;
-	private float ask;
-	private float bid;
-	Calendar cal = Calendar.getInstance();
-	java.util.Date date = cal.getTime(); 
+	protected String symbol;
+	protected float ask;
+	protected float bid;
+	protected Calendar cal = Calendar.getInstance();
+	protected java.util.Date date = cal.getTime(); 
 
 	DateFormat dateFt = new SimpleDateFormat("dd/MM/yy");
 

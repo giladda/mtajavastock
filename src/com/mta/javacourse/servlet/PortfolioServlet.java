@@ -14,6 +14,8 @@ import com.mta.javacourse.service.PortfolioService;
  * @author Gilad David
  *
  */
+@SuppressWarnings("serial")
+
 public class PortfolioServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {

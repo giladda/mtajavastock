@@ -5,6 +5,7 @@ import java.util.GregorianCalendar;
 
 import com.mta.javacourse.model.Portfolio;
 import com.mta.javacourse.model.Stock;
+import com.mta.javacourse.model.StockStatus;
 /**
  * Class for adding values into stock fields
  * 
@@ -23,17 +24,17 @@ public class PortfolioService {
 	{
 		Portfolio myPortfolio = new Portfolio("portfolio");
 
-		myPortfolio.setTitle("Exercise 7 portfolio");
+		myPortfolio.setTitle("Exercise 8 portfolio");
 		myPortfolio.setBalance(10000);
 
 		Calendar cal = Calendar.getInstance();
 		cal.set(Calendar.ERA, GregorianCalendar.AD);
 		cal.set(2014,11,15);
 		java.util.Date date = cal.getTime();
-		
-		Stock s1 = new Stock("PIH", 10f, 8.5f, date);
-		Stock s2 = new Stock("AAL", 30f, 25.5f, date);
-		Stock s3 = new Stock("CAAS", 20f, 15.5f, date);
+
+		Stock s1 = new StockStatus("PIH", 10f, 8.5f, date);
+		Stock s2 = new StockStatus("AAL", 30f, 25.5f, date);
+		Stock s3 = new StockStatus("CAAS", 20f, 15.5f, date);
 
 		myPortfolio.addStock(s1);
 		myPortfolio.addStock(s2);
