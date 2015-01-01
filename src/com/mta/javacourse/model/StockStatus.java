@@ -43,7 +43,7 @@ public class StockStatus extends Stock  {
 	/**
 	 * copy c'tor for filling stock status fields according to stock members
 	 * 
-	 * @param stockSymbol
+	 * @param Symbol
 	 * @param ask
 	 * @param bid
 	 * @param date
