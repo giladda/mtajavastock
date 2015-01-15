@@ -6,11 +6,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mta.javacourse.exception.BalanceException;
+import com.mta.javacourse.exception.PortfolioFullException;
+import com.mta.javacourse.exception.StockAlreadyExistsException;
+import com.mta.javacourse.exception.StockNotExistException;
 import com.mta.javacourse.model.Portfolio;
 import com.mta.javacourse.service.PortfolioService;
 
 /**
- * Class for displaying portfolio as html page
+ * Class for displaying portfolio as an html page
  * @author Gilad David
  *
  */
@@ -21,11 +25,18 @@ public class PortfolioServlet extends HttpServlet {
 			throws IOException {
 
 		PortfolioService portfolioService = new PortfolioService();
-		Portfolio portfolio = portfolioService.getPortfolio();
+		Portfolio portfolio;
+		/**
+		 * Multi Catch for exception handling
+		 */
+		try {
+			portfolio = portfolioService.getPortfolio();
+			String portfolioPage = portfolio.getHtmlString();
+			resp.getWriter().println(portfolioPage);
+		} catch (StockAlreadyExistsException | PortfolioFullException
+				| BalanceException | StockNotExistException e) {
+			resp.getWriter().println(e.getMessage());
+		}
 		resp.setContentType("text/html");
-
-		//printing portfolio
-		String portfolioPage = portfolio.getHtmlString();
-		resp.getWriter().println(portfolioPage);
 	}
 }
