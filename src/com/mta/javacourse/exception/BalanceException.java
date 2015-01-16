@@ -6,8 +6,8 @@ package com.mta.javacourse.exception;
  */
 public class BalanceException extends Exception {
 
-	public BalanceException()
+	public BalanceException(float portfolioBalance)
 	{
-		super("Insufficient Funds");
+		super("your portfolio balance: " + portfolioBalance + " is not enough to make this purchase");
 	}
 }

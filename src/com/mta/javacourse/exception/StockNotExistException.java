@@ -6,8 +6,8 @@ package com.mta.javacourse.exception;
  */
 public class StockNotExistException extends Exception {
 
-	public StockNotExistException()
+	public StockNotExistException(String symbol)
 	{
-		super("Stock doesn't exist in portfolio");
+		super("Stock " + symbol + " doesn't exist in portfolio");
 	}
 }

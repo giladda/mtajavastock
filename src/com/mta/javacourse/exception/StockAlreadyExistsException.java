@@ -6,8 +6,8 @@ package com.mta.javacourse.exception;
  */
 public class StockAlreadyExistsException extends Exception {
 
-	public StockAlreadyExistsException()
+	public StockAlreadyExistsException(String symbol)
 	{
-		super ("Stock already exists in portfolio");
+		super ("Stock " + symbol + " already exists in portfolio");
 	}	
 }

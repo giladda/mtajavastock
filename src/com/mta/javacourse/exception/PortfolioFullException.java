@@ -6,8 +6,8 @@ package com.mta.javacourse.exception;
  *
  */
 public class PortfolioFullException extends Exception {
-	public PortfolioFullException()
+	public PortfolioFullException(int maxPortfolioSize)
 	{
-		super("Warning - You have reached maximum portfolio size!");
+		super("you can have maximum " + maxPortfolioSize + " stocks in your portfolio");
 	}
 }

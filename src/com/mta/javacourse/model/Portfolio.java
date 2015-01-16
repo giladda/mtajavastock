@@ -68,7 +68,7 @@ public class Portfolio {
 		for (int i = 0; i < portfolioSize; i++)
 			if (stock.getSymbol().equals(stockStatus[i].getSymbol()))
 			{
-				throw new StockAlreadyExistsException();
+				throw new StockAlreadyExistsException(stock.getSymbol());
 			}
 
 		if (portfolioSize < MAX_PORFOLIO_SIZE) 
@@ -80,7 +80,7 @@ public class Portfolio {
 			this.stockStatus[portfolioSize].setDate(new Date(stock.date.getTime()));
 			portfolioSize++;
 		} else
-			throw new PortfolioFullException();
+			throw new PortfolioFullException(MAX_PORFOLIO_SIZE);
 	}
 
 	/**
@@ -101,7 +101,7 @@ public class Portfolio {
 				portfolioSize--;
 				return;
 			} 
-		throw new StockNotExistException();
+		throw new StockNotExistException(symbol);
 	}
 	/**
 	 * function for selling stocks and updating portfolio balance
@@ -132,7 +132,7 @@ public class Portfolio {
 					System.out.println("Error->Your Stock Quantity is lower than requested");
 				return;
 			}
-		throw new StockNotExistException();
+		throw new StockNotExistException(symbol);
 	}
 	/**
 	 * function for buying stocks and updating portfolio balance
@@ -161,7 +161,7 @@ public class Portfolio {
 						buyQuantity = maxQuantity;
 					}
 					else if (quantity > maxQuantity){
-						throw new BalanceException();
+						throw new BalanceException(getBalance());
 					}
 					updateBalance(buyQuantity * stockStatus[i].getAsk() * (-1));
 					stockStatus[i].setStockQuantity(stockStatus[i].getStockQuantity()+buyQuantity);
@@ -169,7 +169,7 @@ public class Portfolio {
 				}
 			}
 		}
-		throw new StockNotExistException();
+		throw new StockNotExistException(symbol);
 	}
 	/**
 	 * function for updating balance when buying/selling stocks
