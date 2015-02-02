@@ -28,6 +28,16 @@ public class StockStatus extends Stock  {
 	}
 
 	/**
+	 * c'tor for receiving stock and updating its values
+	 * @param stock
+	 */
+	public StockStatus(Stock stock) {
+		super(stock);
+		recommendation = ALGO_RECOMMENDATION.DO_NOTHING;
+		stockQuantity = 0;
+	}
+
+	/**
 	 * copy c'tor for stock status
 	 * 
 	 * @param stockStatus

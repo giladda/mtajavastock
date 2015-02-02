@@ -4,9 +4,11 @@ package com.mta.javacourse.exception;
  * @author Gilad David
  *
  */
-public class StockNotExistException extends Exception {
+public class StockNotExistsException extends Exception {
 
-	public StockNotExistException(String symbol)
+	private static final long serialVersionUID = 1L;
+
+	public StockNotExistsException(String symbol)
 	{
 		super("Stock " + symbol + " doesn't exist in portfolio");
 	}

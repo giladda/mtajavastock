@@ -20,7 +20,7 @@ public class Stock {
 	protected Calendar cal = Calendar.getInstance();
 	protected java.util.Date date = cal.getTime(); 
 
-	DateFormat dateFt = new SimpleDateFormat("dd/MM/yy");
+	protected transient DateFormat dateFt = new SimpleDateFormat("dd/MM/yy");
 
 	/**
 	 * c'tor for initializing stocks
